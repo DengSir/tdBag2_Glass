@@ -1,0 +1,8 @@
+## Interface: 11304
+## Title: tdBag2 Glass
+## Author: Dencer
+## Version: @project-version@
+## Dependencies: tdBag2
+
+Style.xml
+Addon.lua
