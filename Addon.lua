@@ -57,5 +57,11 @@ Addon:RegisterStyle('Glass', {
                 self.TitleFrame:SetPoint('TOPLEFT', 8, -8)
             end,
         },
+        SearchBox = {
+            Constructor = function(self)
+                local color = BORDER_COLORS[self.meta.bagId]
+                self:SetBackdropBorderColor(color.r, color.g, color.b)
+            end
+        }
     },
 })
