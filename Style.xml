@@ -21,16 +21,11 @@
             </Layer>
         </Layers>
     </Button>
-    <Frame name="tdBag2GlassBaseFrameTemplate" hidden="true" toplevel="true" movable="true" enableMouse="true" frameStrata="MEDIUM" clampedToScreen="true" virtual="true">
+    <Frame name="tdBag2GlassBaseFrameTemplate" hidden="true" toplevel="true" movable="true" enableMouse="true" frameStrata="MEDIUM" clampedToScreen="true" virtual="true" build:inherits="non-classic(BackdropTemplate)">
         <KeyValues>
             <KeyValue key="fixedWidth" value="14" type="number"/>
             <KeyValue key="fixedHeight" value="72" type="number"/>
         </KeyValues>
-        <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-            <EdgeSize val="12"/>
-            <TileSize val="12"/>
-            <BackgroundInsets left="3" right="3" top="3" bottom="3"/>
-        </Backdrop>
         <Frames>
             <Button parentKey="Close" inherits="UIPanelCloseButton">
                 <Anchors>
@@ -64,13 +59,8 @@
                     <Anchor point="TOPLEFT" relativeKey="$parent.Inset" relativePoint="TOPLEFT" x="8" y="-8" />
                 </Anchors>
             </Frame>
-            <EditBox parentKey="SearchBox" autoFocus="false">
+            <EditBox parentKey="SearchBox" autoFocus="false" build:inherits="non-classic(BackdropTemplate)">
                 <Size y="28"/>
-                <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-                    <EdgeSize val="12"/>
-                    <TileSize val="12"/>
-                    <BackgroundInsets left="4" right="4" top="4" bottom="4"/>
-                </Backdrop>
                 <Anchors>
                     <Anchor point="LEFT" relativePoint="TOPLEFT" x="6" y="-45" />
                     <Anchor point="RIGHT" relativePoint="TOPRIGHT" x="-6" y="-45" />
@@ -130,6 +120,12 @@
                 <Scripts>
                     <OnLoad>
                         SearchBoxTemplate_OnLoad(self)
+                        self:SetBackdrop{
+                            bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
+                            edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
+                            tile = true, edgeSize = 12, tileSize = 12,
+                            insets = {left=3, right=3, top=3, bottom=3},
+                        }
                         self:SetTextInsets(20, 20, 0, 0)
                         self:SetBackdropColor(0, 0, 0, 0.5)
                         self:SetBackdropBorderColor(1, 1, 1, 0.8)
@@ -144,11 +140,6 @@
                 <FontString inherits="GameFontHighlightSmall"/>
             </EditBox>
         </Frames>
-        <Scripts>
-            <OnLoad>
-                self:SetBackdropColor(0, 0, 0, 0.8)
-            </OnLoad>
-        </Scripts>
     </Frame>
     <Frame name="tdBag2GlassFrameTemplate" inherits="tdBag2GlassBaseFrameTemplate" virtual="true">
         <KeyValues>
@@ -183,7 +174,6 @@
         </Frames>
         <Scripts>
             <OnLoad>
-                self:SetBackdropColor(0, 0, 0, 0.8)
                 self.Inset:SetPoint('BOTTOMRIGHT', 0, 22)
                 self.TitleFrame:SetPoint('TOPLEFT', self.PluginFrame, 'TOPRIGHT', 5, 0)
             </OnLoad>

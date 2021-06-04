@@ -2,7 +2,7 @@
 -- @Author : Dencer (tdaddon@163.com)
 -- @Link   : https://dengsir.github.io
 -- @Date   : 4/25/2020, 3:07:22 AM
-
+--
 local Addon = tdBag2
 if not Addon then
     return
@@ -28,10 +28,12 @@ Addon:RegisterStyle('Glass', {
                 self:SetBackdropBorderColor(color.r, color.g, color.b)
             end,
         },
+
         PluginFrame = { --
             BUTTON_TEMPLATE = 'tdBag2GlassToggleButtonTemplate',
             SPACING = 2,
         },
+
         TitleContainer = { --
             SCROLL_TEMPLATE = 'tdBag2GlassScrollFrameTemplate',
         },
@@ -52,16 +54,39 @@ Addon:RegisterStyle('Glass', {
     },
 
     hooks = {
+        Frame = {
+            Constructor = function(self)
+                self:SetBackdrop{
+                    bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
+                    edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
+                    tile = true,
+                    edgeSize = 12,
+                    tileSize = 12,
+                    insets = {left = 3, right = 3, top = 3, bottom = 3},
+                }
+                self:SetBackdropColor(0, 0, 0, 0.8)
+            end,
+        },
+
+        ContainerFrame = {
+            PlacePluginFrame = function(self, ...)
+                if not self.meta.profile.pluginButtons then
+                    self.PluginFrame:SetWidth(0.1)
+                end
+            end,
+        },
+
         GlobalSearchFrame = {
             Constructor = function(self, ...)
                 self.TitleFrame:SetPoint('TOPLEFT', 8, -8)
             end,
         },
+
         SearchBox = {
             Constructor = function(self)
                 local color = BORDER_COLORS[self.meta.bagId]
                 self:SetBackdropBorderColor(color.r, color.g, color.b)
-            end
-        }
+            end,
+        },
     },
 })
