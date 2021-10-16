@@ -21,7 +21,7 @@
             </Layer>
         </Layers>
     </Button>
-    <Frame name="tdBag2GlassBaseFrameTemplate" hidden="true" toplevel="true" movable="true" enableMouse="true" frameStrata="MEDIUM" clampedToScreen="true" virtual="true" build:inherits="non-classic(BackdropTemplate)">
+    <Frame name="tdBag2GlassBaseFrameTemplate" hidden="true" toplevel="true" movable="true" enableMouse="true" frameStrata="MEDIUM" clampedToScreen="true" virtual="true" inherits="BackdropTemplate">
         <KeyValues>
             <KeyValue key="fixedWidth" value="14" type="number"/>
             <KeyValue key="fixedHeight" value="72" type="number"/>
@@ -59,7 +59,7 @@
                     <Anchor point="TOPLEFT" relativeKey="$parent.Inset" relativePoint="TOPLEFT" x="8" y="-8" />
                 </Anchors>
             </Frame>
-            <EditBox parentKey="SearchBox" autoFocus="false" build:inherits="non-classic(BackdropTemplate)">
+            <EditBox parentKey="SearchBox" autoFocus="false" inherits="BackdropTemplate">
                 <Size y="28"/>
                 <Anchors>
                     <Anchor point="LEFT" relativePoint="TOPLEFT" x="6" y="-45" />
