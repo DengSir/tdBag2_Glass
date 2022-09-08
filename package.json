@@ -1,6 +1,6 @@
 {
   "name": "tdbag2_glass",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Glass style for tdBag2",
   "main": "index.js",
   "scripts": {
