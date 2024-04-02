@@ -189,4 +189,11 @@
             </Slider>
         </Frames>
     </ScrollFrame>
+
+    <Frame name="tdBag2GlassEquipContainerCenterFrameTemplate" virtual="true">
+        <Size x="231" y="320"/>
+        <Anchors>
+            <Anchor point="TOPLEFT" x="52" y="-66"/>
+        </Anchors>
+    </Frame>
 </Ui>

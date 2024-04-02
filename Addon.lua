@@ -51,6 +51,10 @@ Addon:RegisterStyle('Glass', {
                 end
             end,
         },
+
+        EquipFrame = { --
+            CENTER_TEMPLATE = 'tdBag2GlassEquipContainerCenterFrameTemplate',
+        },
     },
 
     hooks = {

@@ -23,7 +23,8 @@
     "name": "tdBag2_Glass",
     "curse_id": 378606,
     "builds": {
-      "lkc": "30400"
+      "classic": "11501",
+      "lkc": "30403"
     }
   }
 }
