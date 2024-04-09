@@ -1,11 +1,11 @@
-name: "Publish addon 🚛"
+name: "Publish🚛"
 on:
   push:
     tags:
-      - v*
+      - "v*"
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,11 +13,12 @@ jobs:
         with:
           submodules: true
 
-      - uses: DengSir/curse-publish-action@master
+      - name: Publish to curse
+        uses: DengSir/curse-publish-action@master
         with:
           token: ${{ secrets.CURSE_TOKEN }}
 
-      - name: release
+      - name: Release to GitHub
         uses: softprops/action-gh-release@v2
         with:
           body_path: changelog.txt

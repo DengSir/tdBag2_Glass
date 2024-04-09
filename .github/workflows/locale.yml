@@ -1,4 +1,4 @@
-name: "Locale addon 🌏"
+name: "Locale🌏"
 on:
   push:
     branches:
@@ -15,11 +15,13 @@ jobs:
         with:
           submodules: true
 
-      - uses: DengSir/curse-locale-action@master
+      - name: Update locale files
+        uses: DengSir/curse-locale-action@master
         with:
           token: ${{ secrets.CURSE_TOKEN }}
 
-      - uses: GuillaumeFalourd/git-commit-push@v1.3
+      - name: Commit and push changes
+        uses: GuillaumeFalourd/git-commit-push@v1.3
         with:
           commit_message: "chore: Update locale files"
           tags: false
