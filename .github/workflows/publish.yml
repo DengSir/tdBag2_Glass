@@ -1,24 +1,25 @@
-name: "Publish🚛"
+name: "Publish 🚛"
 on:
   push:
     tags:
-      - "v*"
+      - v*
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           submodules: true
 
-      - name: Publish to curse
-        uses: DengSir/curse-publish-action@master
+      - name: Publish to curseforge
+        uses: curse-action/publish@master
         with:
           token: ${{ secrets.CURSE_TOKEN }}
 
-      - name: Release to GitHub
+      - name: Release to github
         uses: softprops/action-gh-release@v2
         with:
           body_path: changelog.txt
